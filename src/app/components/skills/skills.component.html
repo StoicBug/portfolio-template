@@ -1,0 +1,32 @@
+<div class="container mx-auto my-20">
+    <div class="p-8 bg-gradient-to-br from-pink-300 to-yellow-200 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+        <h2 class="mb-6 text-5xl font-black text-black">Skills</h2>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button *ngFor="let skill of skills; let i = index"
+                  (click)="selectSkill(i)"
+                  class="px-6 py-3 text-xl font-bold transition-all duration-300 transform border-4 border-black rounded-full hover:bg-black hover:text-white hover:scale-105"
+                  [ngClass]="{'bg-black text-white scale-105 ': selectedSkillIndex === i}">
+            {{ skill.name }}
+          </button>
+        </div>
+        <div *ngIf="selectedSkill" class="overflow-hidden bg-white border-4 border-black rounded-lg shadow-lg">
+          <div class="flex items-center justify-between p-3 bg-gray-100 border-b-4 border-black">
+            <div class="flex space-x-2">
+              <div class="w-4 h-4 bg-red-500 border-2 border-black rounded-full"></div>
+              <div class="w-4 h-4 bg-yellow-500 border-2 border-black rounded-full"></div>
+              <div class="w-4 h-4 bg-green-500 border-2 border-black rounded-full"></div>
+            </div>
+            <div class="px-3 py-1 font-mono text-sm bg-white border-2 border-black rounded-full">
+              {{ selectedSkill.name }}.skill
+            </div>
+            <div class="w-4"></div>
+          </div>
+          <div class="p-6 font-mono text-lg bg-gradient-to-br from-blue-50 to-purple-50">
+            <p *ngFor="let item of selectedSkill.items" class="flex items-start mb-3">
+              <span class="mr-2 text-2xl">▹</span>
+              <span>{{ item }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+</div>

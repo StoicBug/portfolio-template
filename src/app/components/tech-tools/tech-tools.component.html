@@ -1,0 +1,11 @@
+<div class="container mx-auto my-20">
+    <div class="p-8 bg-gradient-to-br from-blue-200 to-green-200 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+        <h2 class="mb-6 text-5xl font-black text-black">Technologies & Tools</h2>
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div *ngFor="let tech of technologies" class="flex flex-col items-center justify-center p-4 transition-transform transform bg-white border-4 border-black rounded-lg hover:scale-105">
+            <img [src]="tech.icon" [alt]="tech.name" class="w-16 h-16 mb-2">
+            <span class="font-bold text-center">{{ tech.name }}</span>
+          </div>
+        </div>
+      </div>
+</div>
